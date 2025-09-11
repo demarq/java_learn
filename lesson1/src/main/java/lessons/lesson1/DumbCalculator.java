@@ -28,7 +28,7 @@ public class DumbCalculator {
             throw new IllegalArgumentException("Expected numbers as arguments");
         }
         if (!DumbCalculator.operations.contains(args[1])) {
-            throw new IllegalArgumentException("Expected operation as argument from list" + DumbCalculator.operations);
+            throw new IllegalArgumentException("Expected operation as argument from list " + DumbCalculator.operations);
         }
         return new Arguments(Double.parseDouble(args[0]), args[1], Double.parseDouble(args[2]));
 
@@ -55,8 +55,8 @@ public class DumbCalculator {
             case "/" -> {
                 return divide(number1, number2);
             }
+            default -> throw new IllegalArgumentException("Unknown operation: " + operation);
         }
-        throw new IllegalArgumentException("Unknown operation: " + operation);
     }
 
     private double add(double number1, double number2) {
