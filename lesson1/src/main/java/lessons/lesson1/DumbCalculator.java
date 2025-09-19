@@ -10,7 +10,7 @@ record Arguments(Double number1, String operation, Double number2) {
 
 public class DumbCalculator {
 
-    static List<String> operations = Arrays.asList("+", "-", "*", "/");
+    static final List<String> operations = Arrays.asList("+", "-", "*", "/");
 
     public DumbCalculator(int dumpLevel) {
         System.out.println("DumbCalculator( " + dumpLevel + ")");
@@ -72,6 +72,9 @@ public class DumbCalculator {
     }
 
     private double divide(double number1, double number2) {
+        if (number2 == 0) {
+            throw new ArithmeticException("Division by zero is not allowed");
+        }
         return number1 / number2;
     }
 
