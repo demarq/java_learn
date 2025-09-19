@@ -1,8 +1,8 @@
-package lessons.lesson2;
+package lessons.lesson2.domain;
 
 public class Person {
-    String name;
-    Integer age;
+    protected final String name;
+    protected Integer age;
 
     public Person(String name, Integer age) {
         this.name = name;

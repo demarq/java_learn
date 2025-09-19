@@ -1,23 +1,25 @@
 package lessons.lesson2;
 
+import lessons.lesson2.domain.*;
+
 public class Main {
 
-    public static void printBalance(Account account) {
+    private static void printBalance(Account account) {
         System.out.printf("%s's Account balance %f%n", account.getOwnerName(),account.getBalance());
     }
 
-    public static void checkBalance(Account account, double expectedValue) {
+    private static void checkBalance(Account account, double expectedValue) {
         if (account.getBalance() != expectedValue) {
             throw new RuntimeException(String.format("Invalid balance %f != %f", account.getBalance(), expectedValue ));
         }
     }
 
     public static void main(String[] args) {
-        Person my_person = new Person("Alice", 30);
-        my_person.introduce();
+        Person myPerson = new Person("Alice", 30);
+        myPerson.introduce();
 
-        Student my_student = new Student("Alice", 30, "NAU");
-        my_student.introduce();
+        Student myStudent = new Student("Alice", 30, "NAU");
+        myStudent.introduce();
 
 
         var account = new Account("Valentyn");
@@ -32,7 +34,7 @@ public class Main {
         printBalance(savingsAccount);
 
         var checkingAccount = new CheckingAccount("Petro", 0., 10);
-        checkingAccount.withdrawFromBalance(10);
+        checkingAccount.withdraw(10);
         checkBalance(checkingAccount, -10);
         printBalance(checkingAccount);
 

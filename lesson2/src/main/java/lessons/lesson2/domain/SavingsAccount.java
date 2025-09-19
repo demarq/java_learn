@@ -1,4 +1,4 @@
-package lessons.lesson2;
+package lessons.lesson2.domain;
 
 public class SavingsAccount extends Account{
 
@@ -12,8 +12,8 @@ public class SavingsAccount extends Account{
 
     public void applyInterest(double rate) {
         double balance = this.getBalance();
-        double interest_balance = balance * rate;
-        setBalance(interest_balance);
+        double interestBalance = balance * rate;
+        setBalance(interestBalance);
     }
 
 }

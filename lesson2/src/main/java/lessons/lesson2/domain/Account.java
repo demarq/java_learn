@@ -1,4 +1,6 @@
-package lessons.lesson2;
+package lessons.lesson2.domain;
+
+import lessons.lesson2.exceptions.InvalidAmountException;
 
 public class Account {
     private final String ownerName;
@@ -13,23 +15,16 @@ public class Account {
         this(ownerName, 0.0);
     }
 
-    public void setBalance(double amount) {
+    protected void setBalance(double amount) {
         this.balance = amount;
     }
 
-    public void addToBalance(double amount) {
-        if (amount < 0) {
-            throw new IllegalArgumentException("Cannot deposit negative amount");
-        }
-        balance += amount;
-    }
-
-    public void withdrawFromBalance(double amount) {
+    public void withdraw(double amount) {
         if ((balance - amount) < 0) {
-            throw new IllegalStateException("Balance cant be lower than 0");
+            throw new InvalidAmountException("Balance cant be lower than 0");
         }
         if (amount < 0) {
-            throw new IllegalArgumentException("Cannot withdraw negative amount");
+            throw new InvalidAmountException("Cannot withdraw negative amount");
         }
         balance -= amount;
     }
@@ -43,11 +38,9 @@ public class Account {
     }
 
     public void deposit(double amount) {
-        addToBalance(amount);
+        if (amount <= 0) {
+            throw new InvalidAmountException("Cannot deposit negative | 0 amount");
+        }
+        balance += amount;
     }
-
-
-
-
-
 }

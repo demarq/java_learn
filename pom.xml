@@ -7,9 +7,11 @@
     <groupId>lessons</groupId>
     <artifactId>java-learn</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>lesson1</module>
+        <module>lesson2</module>
     </modules>
 
     <build>
