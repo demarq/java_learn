@@ -23,8 +23,8 @@ public class Account {
         if ((balance - amount) < 0) {
             throw new InvalidAmountException("Balance cant be lower than 0");
         }
-        if (amount < 0) {
-            throw new InvalidAmountException("Cannot withdraw negative amount");
+        if (amount <= 0) {
+            throw new InvalidAmountException("Cannot withdraw negative amount or 0");
         }
         balance -= amount;
     }
