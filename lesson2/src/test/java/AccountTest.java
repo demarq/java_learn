@@ -25,6 +25,7 @@ public class AccountTest {
     void testCreateAccount() {
         var ownerName = "Pepperonny";
         var balance = 10;
+        var account = new Account(ownerName, balance);
         assertEquals(balance, account.getBalance());
         assertEquals(ownerName, account.getOwnerName());
     }
